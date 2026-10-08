@@ -138,6 +138,7 @@ class DataParallelPPOActor(BasePPOActor):
             
             # Get visual tokens' hidden states and compute mean
             visual_hidden = hidden_states[batch_idx, visual_positions, :]  # (num_visual, hidden_dim)
+            #Eq.(2): VIsual Prototype μ_v
             visual_hidden_mean = visual_hidden.mean(dim=0)  # (hidden_dim,)
             
             # Compute similarity for each generated token
